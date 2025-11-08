@@ -4,10 +4,10 @@ CC=i686-elf-gcc
 CRTI_OBJ=crti.o
 CFLAGS=-std=gnu99 -ffreestanding -O2 -Wall -Wextra
 LFLAGS=-ffreestanding -O2 -nostdlib -lgcc -T -lk
-# CRTBEGIN_OBJ:=$(shell $(CC) $(LFLAGS) -print-file-name=crtbegin.o)
-# CRTEND_OBJ:=$(shell $(CC) $(LFLAGS) -print-file-name=crtend.o)
-CRTBEGIN_OBJ=/home/kai/.bin/cross/lib/gcc/i686-elf/10.2.0/crtbegin.o
-CRTEND_OBJ=/home/kai/.bin/cross/lib/gcc/i686-elf/10.2.0/crtend.o
+CRTBEGIN_OBJ:=$(shell $(CC) $(LFLAGS) -print-file-name=crtbegin.o)
+CRTEND_OBJ:=$(shell $(CC) $(LFLAGS) -print-file-name=crtend.o)
+# CRTBEGIN_OBJ=/home/kai/.bin/cross/lib/gcc/i686-elf/10.2.0/crtbegin.o
+# CRTEND_OBJ=/home/kai/.bin/cross/lib/gcc/i686-elf/10.2.0/crtend.o
 CRTN_OBJ=crtn.o
  
 OBJ_LINK_LIST:=$(CRTI_OBJ) $(CRTBEGIN_OBJ) $(OBJS) $(CRTEND_OBJ) $(CRTN_OBJ)

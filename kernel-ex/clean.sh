@@ -8,4 +8,4 @@ done
 
 rm -rf sysroot
 rm -rf isodir
-rm -rf linix.iso
+rm -rf myos.iso

@@ -1,0 +1,7 @@
+* Commandline options. Implement linux/unix like cli with the additional ':' option.
+For example,
+	xview :0T -n --no-listen
+
+* implement a USTAR and then FAT journaling 
+* eventually develop a graph based file system and journaling file system.
+* have MacOS 7/8 style file resource which can be edited by a resedit type program.

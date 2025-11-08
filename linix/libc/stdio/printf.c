@@ -4,6 +4,12 @@
 #include <stdio.h>
 #include <string.h>
 
+/* union arg {
+    uintmax_t i;
+    long double f;
+    void *p;
+}; */
+
 static bool print(const char* data, size_t length) {
     const unsigned char* bytes = (const unsigned char*) data;
     for (size_t i = 0; i < length; i++)
@@ -77,4 +83,9 @@ int printf(const char* restrict format, ...) {
 
     va_end(parameters);
     return written;
+}
+
+int vfprintf(FILE *restrict f, const char *restrict fmt, va_list ap) {
+
+    /* TO-DO: Look up vfprintf standard and reproduce it as best as possible, using musl version as example */
 }

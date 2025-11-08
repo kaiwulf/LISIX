@@ -7,8 +7,9 @@ export PATH="$PREFIX/bin:$PATH"
 which -- $TARGET-as || echo $TARGET-as is not in the PATH
 
 cd build-gcc
-../gcc-11.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=objc --without-headers
-make all-gcc
-make all-target-libgcc
+./contrib/download_prerequisites
+../gcc-13.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c,c++,fortran,go,d,objc,obj-c++ --without-headers
+make -j12 all-gcc
+make -j12 all-target-libgcc
 make install-gcc
 make install-target-libgcc

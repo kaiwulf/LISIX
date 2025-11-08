@@ -6,10 +6,10 @@ mkdir -p isodir
 mkdir -p isodir/boot
 mkdir -p isodir/boot/grub
 
-cp sysroot/boot/linix.kernel isodir/boot/linix.kernel
+cp sysroot/boot/myos.kernel isodir/boot/myos.kernel
 cat > isodir/boot/grub/grub.cfg << EOF
-menuentry "linix" {
-	multiboot /boot/linix.kernel
+menuentry "myos" {
+	multiboot /boot/myos.kernel
 }
 EOF
-grub-mkrescue -o linix.iso isodir
+grub-mkrescue -o myos.iso isodir

@@ -1,7 +1,12 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
- 
+
+#include "../../libc/include/stdio.h"
+
+#include "../include/kernel/tty.h"
+
+
 /* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
 #error "You are not using a cross-compiler, you will most certainly run into trouble"
@@ -11,14 +16,18 @@
 #if !defined(__i386__)
 #error "This tutorial needs to be compiled with a ix86-elf compiler"
 #endif
- 
-void kernel_main(void) 
-{
-	/* Initialize terminal interface */
-	terminal_initialize();
- 
-	/* Newline support is left as an exercise. */
-	// terminal_writestring("Hello, kernel World!\nWe got new lines!\nYay!\n");
 
-	printf("Hello, kernel World!\n");
+void kernel_main(void) {
+
+    terminal_initialize();
+
+    terminal_putchar("Hello, kernel World!\n");
+    terminal_putchar("linix raw terminal\n");
+    terminal_putchar(">>> ");
+
+    /* TO-DO: Understand memory and text I/O using this simple kernel terminal */
+    // for(;;) {
+
+        
+    // }
 }
